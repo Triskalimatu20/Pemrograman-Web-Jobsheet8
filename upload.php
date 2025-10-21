@@ -5,13 +5,11 @@ if(isset($_POST["submit"])) {
     $fileType = strtolower(pathinfo($targetfile, PATHINFO_EXTENSION));
 
     $allowedExtensions = array("jpg", "jpeg", "png", "gif");
-    $maxsize = 5*1024*1024;
+    $maxsize = 3*1024*1024;
 
     if(in_array($fileType, $allowedExtensions) && $_FILES["myfile"]["size"]<=$maxsize) {
         if(move_uploaded_file($_FILES["myfile"]["tmp_name"], $targetfile)) {
             echo "File berhasil diunggah.";
-            echo "<p>Pratinjau Gambar:</p>";
-            echo "<img src='$targetfile' width='200' style='height:auto; border:1px solid #ccc; margin-top:10px;'>";
         } else {
             echo "Gagal menggunggah file.";
         }       
