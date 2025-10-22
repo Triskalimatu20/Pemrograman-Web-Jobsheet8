@@ -12,7 +12,7 @@ $(document).ready(function () {
       contentType: false,
       processData: false,
       success: function (response) {
-        $("#status").html(response); // Tampilkan hasil dari PHP
+        $("#status").html(response);
       },
       error: function () {
         $("#status").html("Terjadi kesalahan saat mengunggah file.");
